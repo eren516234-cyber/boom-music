@@ -71,7 +71,7 @@ class _ArtistView extends ConsumerWidget {
                   CachedNetworkImage(
                     imageUrl: artist.banner ?? artist.thumbnail,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(color: theme.colorScheme.primaryContainer),
+                    errorWidget: (_, __, ___) => Container(color: theme.colorScheme.primaryContainer),
                   ),
                   Container(
                     decoration: BoxDecoration(

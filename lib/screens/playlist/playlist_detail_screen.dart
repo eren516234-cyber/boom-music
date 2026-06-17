@@ -19,7 +19,7 @@ class _PlaylistDetailScreenState extends ConsumerState<PlaylistDetailScreen> {
   bool _showMenu = false;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final playlists = ref.watch(localPlaylistsProvider);
     final playlist = playlists.firstWhere(
       (p) => p.id == widget.id,
@@ -47,7 +47,7 @@ class _PlaylistDetailScreenState extends ConsumerState<PlaylistDetailScreen> {
                   CachedNetworkImage(
                     imageUrl: playlist.thumbnail,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(color: theme.colorScheme.primaryContainer),
+                    errorWidget: (_, __, ___) => Container(color: theme.colorScheme.primaryContainer),
                   ),
                   Container(
                     decoration: BoxDecoration(

@@ -67,7 +67,7 @@ class NowPlayingScreen extends ConsumerWidget {
                   width: double.infinity,
                   height: 300,
                   fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => Container(
+                  errorWidget: (_, __, ___) => Container(
                     height: 300,
                     color: theme.colorScheme.primaryContainer,
                     child: const Icon(Icons.music_note_rounded, size: 80),

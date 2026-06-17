@@ -55,13 +55,15 @@ class YouTubeMusicService {
           if (renderer == null) continue;
 
           final flexCols = renderer['flexColumns'] as List? ?? [];
-          final title = _extractText(flexCols.isNotEmpty
-              ? flexCols[0]['musicResponsiveListItemFlexColumnRenderer']?['text']
-              : null);
+          final col0 = flexCols.isNotEmpty
+              ? flexCols[0]['musicResponsiveListItemFlexColumnRenderer'] as Map?
+              : null;
+          final title = _extractText(col0?['text']);
 
-          final subtitle = _extractText(flexCols.length > 1
-              ? flexCols[1]['musicResponsiveListItemFlexColumnRenderer']?['text']
-              : null);
+          final col1 = flexCols.length > 1
+              ? flexCols[1]['musicResponsiveListItemFlexColumnRenderer'] as Map?
+              : null;
+          final subtitle = _extractText(col1?['text']);
 
           final videoId = renderer['playlistItemData']?['videoId'] ??
               renderer['overlay']?['musicItemThumbnailOverlayRenderer']

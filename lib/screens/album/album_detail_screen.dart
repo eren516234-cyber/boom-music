@@ -73,7 +73,7 @@ class _AlbumView extends ConsumerWidget {
                   CachedNetworkImage(
                     imageUrl: album.thumbnail,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(color: theme.colorScheme.primaryContainer),
+                    errorWidget: (_, __, ___) => Container(color: theme.colorScheme.primaryContainer),
                   ),
                   Container(
                     decoration: BoxDecoration(

@@ -24,11 +24,14 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
   final source = ref.watch(apiSourceProvider);
   if (source == 'deezer') {
     final deezer = DeezerService();
-    final [tracks, albums, playlists] = await Future.wait([
+    final results = await Future.wait([
       deezer.getTopTracks(),
       deezer.getTopAlbums(),
       deezer.getTopPlaylists(),
     ]);
+    final tracks = results[0] as List<Track>;
+    final albums = results[1] as List<Album>;
+    final playlists = results[2] as List<Playlist>;
     return HomeData(
       topTracks: tracks,
       topAlbums: albums,
@@ -38,10 +41,12 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
     );
   } else if (source == 'audius') {
     final audius = AudiusService();
-    final [tracks, playlists] = await Future.wait([
+    final results = await Future.wait([
       audius.getTrendingTracks(),
       audius.getFeaturedPlaylists(),
     ]);
+    final tracks = results[0] as List<Track>;
+    final playlists = results[1] as List<Playlist>;
     return HomeData(
       topTracks: tracks,
       topPlaylists: playlists,
@@ -49,11 +54,14 @@ final homeDataProvider = FutureProvider<HomeData>((ref) async {
     );
   }
   final yt = YouTubeMusicService();
-  final [tracks, albums, newReleases] = await Future.wait([
+  final results = await Future.wait([
     yt.getTopTracks(),
     yt.getTopAlbums(),
     yt.getNewReleases(),
   ]);
+  final tracks = results[0] as List<Track>;
+  final albums = results[1] as List<Album>;
+  final newReleases = results[2] as List<Album>;
   return HomeData(
     topTracks: tracks,
     topAlbums: albums,

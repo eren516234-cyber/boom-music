@@ -18,6 +18,7 @@ import 'screens/local/local_files_screen.dart';
 import 'screens/eq/eq_screen.dart';
 import 'screens/settings/settings_screen.dart';
 import 'providers/theme_provider.dart';
+import 'providers/player_provider.dart';
 
 final _router = GoRouter(
   initialLocation: '/',
