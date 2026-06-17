@@ -1,0 +1,54 @@
+name: boom_music
+description: Boom Music - A beautiful multi-source music player
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Navigation
+  go_router: ^13.2.0
+
+  # State management
+  flutter_riverpod: ^2.5.1
+
+  # HTTP
+  dio: ^5.4.3+1
+
+  # Audio
+  just_audio: ^0.9.39
+  audio_service: ^0.18.15
+  just_audio_background: ^0.0.1-beta.12
+
+  # Images
+  cached_network_image: ^3.3.1
+
+  # Storage
+  shared_preferences: ^2.2.3
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  path_provider: ^2.1.2
+
+  # UI
+  shimmer: ^3.0.0
+  flutter_slidable: ^3.1.0
+  percent_indicator: ^4.2.3
+
+  # Icons / fonts
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.9
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
